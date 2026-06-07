@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SabayHost - Premium Web Hosting, Cloud VPS & Dynamic Billing</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@500..700&display=swap" rel="stylesheet">
+    <!-- AOS (Animate On Scroll) library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+ body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fff8fa;
+        }
+          .bg-magic-orb {
+            animation: bubbleGlow 10s ease-in-out infinite;
+            filter: blur(60px);
+        }
+            .cute-title {
+            font-family: 'Fredoka', sans-serif;
+        }
+        
+        /* Gradient animation background logic */
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.15;
+                filter: blur(40px);
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.25;
+                filter: blur(60px);
+            }
+        
+        }
+
+         /* Whimsical Floating & Bounce Animations */
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1.5deg); }
+        }
+
+        @keyframes cloudDrift {
+            0%, 100% { transform: translateX(0px); opacity: 0.2; }
+            50% { transform: translateX(30px); opacity: 0.4; }
+        }
+
+        .bg-glow-orb {
+            animation: pulseGlow 8s ease-in-out infinite;
+        }
+
+        /* Single Page Application views transition classes */
+        .app-view {
+            display: none;
+        }
+
+        .app-view.active {
+            display: block;
+        }
+
+             .cute-float {
+            animation: gentleFloat 6s ease-in-out infinite;
+        }
+
+        .cloud-bg {
+            animation: cloudDrift 12s ease-in-out infinite;
+        }
+
+        /* Single Page Application views transition classes */
+        .app-view {
+            display: none;
+        }
+
+        .app-view.active {
+            display: block;
+        }
+
+        /* Custom scrollbar for cute look */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fff5f6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ffb1b9;
+            border-radius: 20px;
+        }
+
+
+
+    </style>
+</head>
+
+<body class="bg-[#FFFDF9] text-slate-700 overflow-x-hidden selection:bg-pink-200 selection:text-pink-900">
+
+    <!-- Navigation Bar (Dynamic Routing Integrations) -->
+    <nav
+        class="bg-white/80 backdrop-blur-xl shadow-xs sticky top-0 z-50 border-b-4 border-pink-100/50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo with micro-spring interaction -->
+                 <div onclick="switchView('home-view')"
+                    class="flex items-center space-x-2 transform hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer group">
+                    <div class="w-11 h-11 bg-pink-400 rounded-2xl flex items-center justify-center text-white shadow-md shadow-pink-200 group-hover:rotate-12 transition-transform">
+                        <i class="fa-solid fa-cloud text-xl"></i>
+                    </div>
+                    <span class="cute-title text-3xl font-bold tracking-tight text-slate-800">SABAY<span class="text-pink-400">HOST</span>✨</span>
+                </div>
+
+                <!-- Desktop Menu with clean expanding border lines -->
+                <div class="hidden md:flex space-x-8 font-bold text-xl">
+                    <button onclick="switchView('home-view'); scrollToSection('home')"
+                        class="text-slate-600 hover:text-blue-600 py-2 transition-all cursor-pointer">Home</button>
+                    <button onclick="switchView('home-view'); scrollToSection('services')"
+                        class="text-slate-600 hover:text-blue-600 py-2 transition-all cursor-pointer">Services</button>
+                    <button onclick="switchView('home-view'); scrollToSection('pricing')"
+                        class="text-slate-600 hover:text-blue-600 py-2 transition-all cursor-pointer">Hosting
+                        Plans</button>
+                    <button onclick="switchView('home-view'); scrollToSection('vps-home-pricing')"
+                        class="text-slate-600 hover:text-blue-600 py-2 transition-all cursor-pointer font-semibold">Cloud
+                        VPS</button>
+                    <button onclick="switchView('home-view'); scrollToSection('courses')"
+                        class="text-slate-600 hover:text-blue-600 py-2 transition-all cursor-pointer">Our
+                        Courses</button>
+                </div>
+
+                <!-- Telegram Button with subtle microscale effects -->
+                <div class="hidden md:block">
+                    <a href="https://t.me/" target="_blank"
+                        class="relative overflow-hidden bg-gradient-to-r from-pink-400 to-rose-400 text-white px-6 py-3 rounded-2xl font-bold shadow-md shadow-pink-100 hover:shadow-xl hover:shadow-pink-200 hover:-translate-y-1 active:translate-y-0 transition-all duration-300 flex items-center gap-2 group cursor-pointer">
+                        <i class="fab fa-telegram text-lg transform group-hover:rotate-12 transition-transform"></i>
+                        Say Hello!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================== -->
+    <!-- VIEW CONTAINER: HOME PAGE & SERVICES VIEWS -->
+    <!-- ========================================== -->
+    <div id="home-view" class="app-view active">
+
+        <!-- Hero Section matching screenshot image_e550ee.jpg perfectly -->
+        <header id="home "
+           class="relative bg-gradient-to-b from-[#FFF0F2] via-[#F6F0FF] to-[#FFFDF9] py-28 px-4 overflow-hidden border-b-4 border-dashed border-pink-100">
+        
+            <div class="cloud-bg absolute top-12 left-10 text-white opacity-40 text-7xl pointer-events-none"><i class="fa-solid fa-cloud"></i></div>
+            <div class="cloud-bg absolute bottom-20 right-12 text-white opacity-30 text-9xl pointer-events-none" style="animation-delay: -5s;"></div>
+            <div class="absolute top-1/3 right-1/4 text-pink-200/40 text-4xl cute-float pointer-events-none"><i class="fa-solid fa-sparkles"></i></div>
+            <div class="absolute bottom-1/3 left-1/4 text-purple-200/40 text-4xl cute-float pointer-events-none" style="animation-delay: -3s;"><i class="fa-solid fa-star"></i></div>
+
+
+
+            <!-- Test -->
+                  <div class="max-w-5xl mx-auto text-center relative z-10">
+                <!-- Fluffy Badge -->
+                <div class="inline-flex items-center gap-2 bg-white/80 border border-pink-200 text-pink-500 px-4 py-1.5 rounded-full text-m font-bold shadow-xs tracking-wide mb-6 cute-float">
+                    <span class="flex h-2 w-2 rounded-full bg-pink-400 animate-pulse"></span>
+                    Your internet dreams start here! 
+                </div>
+
+                <h1 data-aos="zoom-in" data-aos-duration="1000"
+                    class="cute-title text-4xl md:text-6xl font-bold mb-6 text-slate-800 leading-tight">
+                    Super Fast Web Hosting &<br>
+                    <span class="bg-gradient-to-r from-pink-400 via-purple-400 to-sky-400 bg-clip-text text-transparent drop-shadow-xs">
+                        Happy Digital Solutions
+                    </span> in Cambodia
+                </h1>
+
+                <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"
+                    class="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto mb-12 font-medium">
+                    Deploy your cozy corner of the web instantly! Safe, blazing fast infrastructure backed by sweetest 24/7 localized human tech assistance. ✨
+                </p>
+
+                <!-- Soft Domain Search Box -->
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="400"
+                    class="bg-white p-3 rounded-3xl shadow-xl shadow-pink-100/40 max-w-3xl mx-auto flex flex-col sm:flex-row gap-3 border-4 border-pink-100/60 focus-within:border-pink-300 transition-all duration-300">
+                    <div class="flex-1 flex items-center px-4 py-2">
+                        <i class="fa-solid fa-wand-magic-sparkles text-pink-300 mr-3 text-xl"></i>
+                        <input type="text" placeholder="Type your dreamy domain name here (e.g., puppy.com)..."
+                            class="w-full text-slate-700 bg-transparent focus:outline-none font-semibold placeholder:text-slate-300">
+                    </div>
+                    <button class="bg-gradient-to-r from-pink-400 to-rose-400 hover:from-pink-500 hover:to-rose-500 text-white font-bold px-8 py-4 rounded-2xl shadow-md transition-all duration-300 hover:scale-[1.03] active:scale-95 whitespace-nowrap cursor-pointer">
+                        Find Magic ✨
+                    </button>
+                </div>
+
+                <!-- Domain prices -->
+                <div data-aos="fade-in" data-aos-duration="1000" data-aos-delay="500"
+                    class="flex flex-wrap justify-center gap-6 mt-6 text-sm text-slate-400 font-bold">
+                    <span class="bg-white border border-slate-100 px-3 py-1 rounded-full shadow-xs hover:text-pink-400 transition-colors">.com <span class="text-pink-400">$12/yr</span></span>
+                    <span class="bg-white border border-slate-100 px-3 py-1 rounded-full shadow-xs hover:text-purple-400 transition-colors">.net <span class="text-purple-400">$14/yr</span></span>
+                    <span class="bg-white border border-slate-100 px-3 py-1 rounded-full shadow-xs hover:text-sky-400 transition-colors">.com.kh <span class="text-sky-400">$65/yr</span></span>
+                </div>
+            </div>
+
+        </header>
+
+        <!-- Core Technical Infrastructure Services -->
+        <section id="services" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+             <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="cute-title text-3xl font-bold text-slate-800 md:text-4xl">Our Technical Wonderland</h2>
+                <p class="text-slate-400 font-medium mt-1">Everything you need to host, scale, and build beautifully.</p>
+                <div class="w-16 h-2 bg-pink-200 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div data-aos="fade-up" data-aos-delay="100"
+                    class="bg-white p-8 rounded-2xl border border-slate-100 hover:border-blue-500/20 shadow-xs hover:shadow-2xl hover:-translate-y-2 transition-all duration-400 group">
+                    <div
+                        class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 text-2xl font-bold mb-6 group-hover:bg-blue-600 group-hover:text-white group-hover:rotate-6 transition-all duration-300">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <h3 class="cute-title text-xl font-bold mb-3 text-slate-800">Infrastructure Services</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">High-performance cloud servers optimized with
+                        enterprise-grade SSD storage for unmatched reliability.</p>
+                </div>
+                <!-- Service Card 2 -->
+                <div data-aos="fade-up" data-aos-delay="200"
+                    class="bg-white p-8 rounded-2xl border border-slate-100 hover:border-amber-500/20 shadow-xs hover:shadow-2xl hover:-translate-y-2 transition-all duration-400 group">
+                    <div
+                        class="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center text-amber-600 text-2xl font-bold mb-6 group-hover:bg-amber-500 group-hover:text-white group-hover:rotate-6 transition-all duration-300">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3 class="cute-title text-xl font-bold mb-3 text-slate-800">Software & Web Design</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">Tailored web design, mobile apps, and custom
+                        business management software unique to your workflow.</p>
+                </div>
+                <!-- Service Card 3 -->
+                <div data-aos="fade-up" data-aos-delay="300"
+                    class="bg-white p-8 rounded-2xl border border-slate-100 hover:border-emerald-500/20 shadow-xs hover:shadow-2xl hover:-translate-y-2 transition-all duration-400 group">
+                    <div
+                        class="w-14 h-14 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 text-2xl font-bold mb-6 group-hover:bg-emerald-600 group-hover:text-white group-hover:rotate-6 transition-all duration-300">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="cute-title text-xl font-bold mb-3 text-slate-800">24/7 Technical Support</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">Expert system administrators based locally to
+                        handle maintenance and troubleshoot real-time issues.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shared Web Hosting Pricing Plans -->
+        <section id="pricing" class="py-24 bg-slate-100/70 border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="bg-blue-100 text-blue-800 text-xs font-bold uppercase px-3 py-1 rounded-full">Shared
+                        Hosting</span>
+                    <h2 class="cute-title text-xl font-bold mb-3 text-slate-800 md:text-4xl tracking-tight mt-3">Flexible Web Hosting
+                        Plans</h2>
+                    <p class="text-slate-600 mt-2">Choose the computing package that matches your business scale.</p>
+
+
+                </div> -->
+                 <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="bg-pink-100 text-pink-500 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">Shared Hosting Ecosystems</span>
+                    <h2 class="cute-title text-3xl font-bold text-slate-800 md:text-4xl mt-3">Cozy Web Hosting Packages</h2>
+                    <p class="text-slate-400 font-medium mt-1">Pick the computing cozy room that aligns with your scale.</p>
+                </div>
+
+
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
+                    <!-- Starter Plan -->
+                    <div data-aos="fade-right"
+                        class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 flex flex-col justify-between hover:shadow-xl transition-all duration-300 h-[480px]">
+                        <div>
+                            <h3 class="cute-title text-lg font-bold text-slate-400">Starter Core</h3>
+                            <div class="mt-2 flex items-baseline text-slate-800">
+                                <span class="cute-title text-5xl font-bold tracking-tight">$2.99</span>
+                                <span class="ml-1 text-sm font-bold text-slate-400">/mo</span>
+                            </div>
+                            <ul class="mt-6 space-y-4 text-slate-600 text-sm">
+                                <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> 1 Website</li>
+                                <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> 10 GB SSD Storage</li>
+                                <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Free SSL Certificate</li>
+                                <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> 1 Dedicated IP Address</li>
+                            </ul>
+                        </div>
+                        <button
+                            onclick="launchCalculator('Shared Web-Plan Starter', 2.99, '6 Core', '12 GB', '200 GB SSD')"
+                            class="mt-8 w-full bg-slate-800 hover:bg-slate-900 text-white py-3.5 rounded-xl font-semibold hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer text-center">Order
+                            &amp; Configure</button>
+                    </div>
+
+                    <!-- Business Premium Plan -->
+                    <div data-aos="fade-up"
+                        class="bg-white rounded-3xl p-8 shadow-xl border-4 border-pink-400 relative flex flex-col justify-between transform md:-translate-y-4 transition-all duration-300 h-[530px]">
+                        <span
+                            class="absolute top-0 right-6 transform -translate-y-1/2 bg-gradient-to-r from-pink-400 to-rose-400 text-white text-xs font-extrabold tracking-widest px-4 py-1.5 rounded-full shadow-md">Popular</span>
+                        <div>
+                             <div class="w-12 h-12 rounded-2xl bg-pink-50 flex items-center justify-center text-pink-400 font-bold mb-4 text-xl"><i class="fa-solid fa-crown"></i></div>
+                            <h3 class="cute-title text-lg font-bold text-pink-400">Premium Business</h3>
+                            <div class="mt-2 flex items-baseline text-slate-800">
+                                <span class="cute-title text-4xl font-bold tracking-tight">$6.99</span>
+                                <span class="ml-1 text-sm font-bold text-slate-400">/mo</span>
+                            </div>
+                            <ul class="mt-6 space-y-4 text-slate-600 text-sm">
+                                <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> 10 Websites</li>
+                                <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> 100 GB NVMe Storage</li>
+                                <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Free SSL &amp; Domain</li>
+                                <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Unlimited Databases</li>
+                                <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Weekly Automated Backups
+                                </li>
+                            </ul>
+                        </div>
+                          <button onclick="launchCalculator('Premium Business Hosting', 6.99, '4 Core CPU', '8 GB', '100 GB NVMe')"
+                            class="mt-8 w-full bg-gradient-to-r from-pink-400 to-rose-400 text-white py-4 rounded-2xl font-bold hover:shadow-lg hover:shadow-pink-200 hover:scale-[1.02] active:scale-95 transition-all duration-200 cursor-pointer text-center">
+                           Order
+                            &amp; Configure✨
+                        </button>
+                        <!-- <button
+                            onclick="launchCalculator('Premium Business Hosting', 6.99, '12 Core', '24 GB', '400 GB SSD')"
+                            class="mt-8 w-full bg-linear-to-r from-blue-600 to-indigo-600 text-white py-3.5 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 hover:shadow-lg hover:shadow-blue-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer text-center">Order
+                            &amp; Configure</button> -->
+                    </div>
+
+                    <!-- Enterprise Plan -->
+                    <div data-aos="fade-left"
+                        class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 flex flex-col justify-between hover:shadow-xl transition-all duration-300 h-[480px]">
+                        <div>
+                            <h3 class="cute-title text-lg font-bold text-purple-400">Enterprise Room</h3>
+                            <div class="mt-2 flex items-baseline text-slate-800">
+                                <span class="cute-title text-4xl font-bold tracking-tight">$14.99</span>
+                                <span class="ml-1 text-sm font-bold text-slate-400">/mo</span>
+                            </div>
+                            <ul class="mt-6 space-y-4 text-slate-600 text-sm">
+                                <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Unlimited Websites</li>
+                                <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> 200 GB NVMe Storage</li>
+                                <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Dedicated IP Address</li>
+                                <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i> Priority Technical Support
+                                    Desk</li>
+                            </ul>
+                        </div>
+                        <button
+                            onclick="launchCalculator('Enterprise Core Hosting', 14.99, '24 Core', '48 GB', '800 GB SSD')"
+                            class="mt-8 w-full bg-slate-800 text-white py-3.5 rounded-xl font-semibold hover:bg-slate-900 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer text-center">Order
+                            &amp; Configure</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADDED CLOUD VPS ON THE HOME PAGE VIEW AS REQUESTED -->
+        <section id="vps-home-pricing" class="py-24 bg-white border-t border-b border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                 <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="bg-sky-100 text-sky-500 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">Dedicated Powerhouses</span>
+                    <h2 class="cute-title text-3xl font-bold text-slate-800 md:text-4xl mt-3">High-Performance Cloud VPS Nodes</h2>
+                    <p class="text-slate-400 font-medium mt-1">Fully dynamic virtual computing sandbox profiles ready to scale up.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
+                    <!-- VPS Tier M1 -->
+                    <div data-aos="fade-right"
+                        class="bg-[#F4FAFC] rounded-3xl p-8 border-3 border-sky-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 h-[490px]">
+                        <div>
+                            <h3 class="cute-title text-lg font-bold text-sky-500">Cloud VPS M1</h3>
+                            <div class="mt-2 flex items-baseline text-slate-900">
+                                <span class="cute-title text-4xl font-bold tracking-tight">$11.59</span>
+                                <span class="ml-1 text-sm font-bold text-slate-400">/mo</span>
+                            </div>
+                            <ul class="mt-6 space-y-3.5 text-slate-600 font-semibold text-sm">
+                                <li><i class="fa-solid fa-microchip text-sky-400 mr-2"></i> vCPU: 6 Dynamic Cores</li>
+                                <li><i class="fa-solid fa-memory text-sky-400 mr-2"></i> RAM: 12 GB Dedicated Space</li>
+                                <li><i class="fa-solid fa-hard-drive text-sky-400 mr-2"></i> 200 GB SSD | 100 GB NVMe</li>
+                                <li><i class="fa-solid fa-shield-cat text-sky-400 mr-2"></i> Isolated Secure Sandbox</li>
+                            </ul>
+                        </div>
+                        <button onclick="launchCalculator('Cloud VPS M1', 11.59, '6 Core vCPU', '12 GB', '200 GB SSD | 100 GB NVMe')"
+                            class="mt-8 w-full bg-sky-400 hover:bg-sky-500 text-white py-4 rounded-2xl font-bold hover:scale-[1.02] active:scale-95 transition-all duration-200 cursor-pointer text-center">
+                            Order &amp; Configure
+                            
+                        </button>
+                    </div>
+
+<!-- VPS Tier M2 -->
+                    <div data-aos="fade-up"
+                        class="bg-[#F4FAFC] rounded-3xl p-8 border-3 border-sky-200 flex flex-col justify-between hover:shadow-xl transition-all duration-300 h-[490px]">
+                        <div>
+                            <h3 class="cute-title text-lg font-bold text-indigo-500">Cloud VPS M2</h3>
+                            <div class="mt-2 flex items-baseline text-slate-900">
+                                <span class="cute-title text-4xl font-bold tracking-tight">$22.99</span>
+                                <span class="ml-1 text-sm font-bold text-slate-400">/mo</span>
+                            </div>
+                            <ul class="mt-6 space-y-3.5 text-slate-600 font-semibold text-sm">
+                                <li><i class="fa-solid fa-microchip text-indigo-400 mr-2"></i> vCPU: 12 Dynamic Cores</li>
+                                <li><i class="fa-solid fa-memory text-indigo-400 mr-2"></i> RAM: 24 GB Dedicated Space</li>
+                                <li><i class="fa-solid fa-hard-drive text-indigo-400 mr-2"></i> 400 GB SSD | 200 GB NVMe</li>
+                                <li><i class="fa-solid fa-network-wired text-indigo-400 mr-2"></i> Global Port Access Ready</li>
+                            </ul>
+                        </div>
+                        <button onclick="launchCalculator('Cloud VPS M2', 22.99, '12 Core vCPU', '24 GB', '400 GB SSD | 200 GB NVMe')"
+                            class="mt-8 w-full bg-indigo-400 hover:bg-indigo-500 text-white py-4 rounded-2xl font-bold hover:scale-[1.02] active:scale-95 transition-all duration-200 cursor-pointer text-center">
+                            Order &amp; Configure
+                        </button>
+                    </div>
+
+                    <!-- VPS Tier M3 -->
+                    <div data-aos="fade-left"
+                        class="bg-[#F4FAFC] rounded-3xl p-8 border-3 border-sky-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 h-[490px]">
+                        <div>
+                            <h3 class="cute-title text-lg font-bold text-purple-500">Cloud VPS M3</h3>
+                            <div class="mt-2 flex items-baseline text-slate-900">
+                                <span class="cute-title text-4xl font-bold tracking-tight">$45.50</span>
+                                <span class="ml-1 text-sm font-bold text-slate-400">/mo</span>
+                            </div>
+                            <ul class="mt-6 space-y-3.5 text-slate-600 font-semibold text-sm">
+                                <li><i class="fa-solid fa-microchip text-purple-400 mr-2"></i> vCPU: 24 Dynamic Cores</li>
+                                <li><i class="fa-solid fa-memory text-purple-400 mr-2"></i> RAM: 48 GB Dedicated Space</li>
+                                <li><i class="fa-solid fa-hard-drive text-purple-400 mr-2"></i> 800 GB SSD | 400 GB NVMe</li>
+                                <li><i class="fa-solid fa-circle-nodes text-purple-400 mr-2"></i> Scalable Multi-Clusters</li>
+                            </ul>
+                        </div>
+                        <button onclick="launchCalculator('Cloud VPS M3', 45.50, '24 Core vCPU', '48 GB', '800 GB SSD | 400 GB NVMe')"
+                            class="mt-8 w-full bg-purple-400 hover:bg-purple-500 text-white py-4 rounded-2xl font-bold hover:scale-[1.02] active:scale-95 transition-all duration-200 cursor-pointer text-center">
+                            Order &amp; Configure
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Training Courses -->
+        <section id="courses" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-slate-900 md:text-4xl tracking-tight">Technical Training Courses</h2>
+                <p class="text-slate-600 mt-2">Up-skill your tech competency with training supported by Rean Tech
+                    Institute.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <div data-aos="zoom-in" data-aos-delay="100"
+                    class="bg-white rounded-2xl border border-slate-100 overflow-hidden text-center p-6 hover:border-blue-500 shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer group">
+                    <div
+                        class="text-4xl text-blue-600 mb-4 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                        <i class="fa-solid fa-compass-drafting"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900">Web Design / UX-UI</h4>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="200"
+                    class="bg-white rounded-2xl border border-slate-100 overflow-hidden text-center p-6 hover:border-amber-500 shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer group">
+                    <div
+                        class="text-4xl text-amber-500 mb-4 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900">Web Development</h4>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="300"
+                    class="bg-white rounded-2xl border border-slate-100 overflow-hidden text-center p-6 hover:border-indigo-500 shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer group">
+                    <div
+                        class="text-4xl text-indigo-600 mb-4 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900">Database Management</h4>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="400"
+                    class="bg-white rounded-2xl border border-slate-100 overflow-hidden text-center p-6 hover:border-purple-500 shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer group">
+                    <div
+                        class="text-4xl text-purple-600 mb-4 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                        <i class="fa-solid fa-diagram-project"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900">Project Management</h4>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- VIEW CONTAINER: DETAILED CALCULATOR VIEW   -->
+    <!-- ========================================== -->
+    <div id="calculator-view" class="app-view max-w-7xl mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+
+            <!-- Dynamic Configuration Options Column (Matching design layout from image_e4d509.png) -->
+            <div class="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-slate-200 p-8 space-y-10">
+
+                <!-- Configure Head Node Header Summary -->
+                <div class="border-b border-slate-100 pb-6">
+                    <div class="flex justify-between items-center flex-wrap gap-2">
+                        <h2 class="text-2xl font-extrabold text-slate-900" id="selected-instance-title">Configure your
+                            Server</h2>
+                        <div class="text-right">
+                            <span class="text-sm text-slate-500">Monthly Base Price:</span>
+                            <span class="font-bold text-slate-900 ml-1" id="base-price-display">$11.59</span>
+                            <span
+                                class="block text-xs font-bold bg-red-600 text-white px-2 py-0.5 rounded mt-1 inline-block">No
+                                Setup Fee</span>
+                        </div>
+                    </div>
+                    <!-- System hardware config spec grids -->
+                    <div class="mt-4 grid grid-cols-3 bg-slate-50 p-4 rounded-xl text-xs gap-4 border border-slate-100">
+                        <div><span class="block text-slate-400 font-medium">CPU</span><span
+                                class="font-bold text-slate-800" id="spec-cpu">vCPU: 6 Core</span></div>
+                        <div><span class="block text-slate-400 font-medium">RAM</span><span
+                                class="font-bold text-slate-800" id="spec-ram">RAM: 12 GB</span></div>
+                        <div><span class="block text-slate-400 font-medium">Storage Allocation</span><span
+                                class="font-bold text-slate-800" id="spec-storage">200 GB SSD | 100 GB NVMe</span></div>
+                    </div>
+                </div>
+
+                <!-- Step 1: Term Length Selection Modules -->
+                <div>
+                    <h3 class="fa-solid fa-calendar-days text-sky-400">1. Select your term length</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <label class="cursor-pointer">
+                            <input type="radio" name="term" value="3" checked onchange="updateLiveLedger()"
+                                class="peer hidden">
+                            <div
+                                class="border border-slate-200 rounded-xl p-4 flex items-center justify-between shadow-2xs transition-all peer-checked:border-blue-500 peer-checked:bg-blue-50/50">
+                                <span class="text-sm font-semibold text-slate-700">3 Months</span>
+                                <!-- <span class="text-blue-600 opacity-0 peer-checked:opacity-100"> -->
+                                    <!-- <i class="fa-solid fa-circle-check"></i></span> -->
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="term" value="6" onchange="updateLiveLedger()" class="peer hidden">
+                            <div
+                                class="border border-slate-200 rounded-xl p-4 flex items-center justify-between shadow-2xs transition-all peer-checked:border-pink-500 peer-checked:bg-pink-50/50">
+                                <span class="text-sm font-semibold text-slate-700">6 Months</span>
+                                <span
+                                    class="bg-emerald-100 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded-md">SAVE
+                                    $2.22</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="term" value="12" onchange="updateLiveLedger()"
+                                class="peer hidden">
+                            <div
+                                class="border border-slate-200 rounded-xl p-4 flex items-center justify-between shadow-2xs transition-all peer-checked:border-purple-600 peer-checked:bg-purple-50/50">
+                                <span class="text-sm font-semibold text-slate-700">12 Months</span>
+                                <span
+                                    class="bg-emerald-100 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded-md">SAVE
+                                    $5.50</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 2: Deployment Region Options -->
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-4">2. Region</h3>
+                    <div class="space-y-3">
+                        <label class="block cursor-pointer">
+                            <input type="radio" name="region" value="0" checked onchange="updateLiveLedger()"
+                                class="peer hidden">
+                            <div
+                                class="border border-slate-200 rounded-xl p-4 flex justify-between items-center text-sm transition-all peer-checked:border-blue-600 peer-checked:bg-blue-50/50">
+                                <span class="font-semibold text-slate-700"><i
+                                        class="fa-solid fa-flag-usa mr-2 text-slate-400"></i>European Union</span>
+                                <span class="text-emerald-600 font-bold">Free</span>
+                            </div>
+                        </label>
+                        <label class="block cursor-pointer">
+                            <input type="radio" name="region" value="2.8" onchange="updateLiveLedger()"
+                                class="peer hidden">
+                            <div
+                                class="border border-slate-200 rounded-xl p-4 flex justify-between items-center text-sm transition-all peer-checked:border-blue-600 peer-checked:bg-blue-50/50">
+                                <span class="font-semibold text-slate-700"><i
+                                        class="fa-solid fa-earth-asia mr-2 text-slate-400"></i>Asia (Singapore) <span
+                                        class="text-xs text-emerald-600 font-bold ml-2"><i class="fa-solid fa-bolt"></i>
+                                        Best Latency 35 ms</span></span>
+                                <span class="text-slate-600 font-medium">+$2.8 per month</span>
+                            </div>
+                        </label>
+                        <label class="block cursor-pointer">
+                            <input type="radio" name="region" value="4.8" onchange="updateLiveLedger()"
+                                class="peer hidden">
+                            <div
+                                class="border border-slate-200 rounded-xl p-4 flex justify-between items-center text-sm transition-all peer-checked:border-blue-600 peer-checked:bg-blue-50/50">
+                                <span class="font-semibold text-slate-700"><i
+                                        class="fa-solid fa-location-dot mr-2 text-slate-400"></i>Asia (Cambodia) <span
+                                        class="text-xs text-emerald-600 font-bold ml-2"><i class="fa-solid fa-bolt"></i>
+                                        Best Latency 25 ms</span></span>
+                                <span class="text-slate-600 font-medium">+$4.8 per month</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 3: Storage Configuration Layers -->
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-4">3. Storage Type</h3>
+                    <div class="space-y-3">
+                        <label class="block cursor-pointer">
+                            <input type="radio" name="storage" value="0" checked onchange="updateLiveLedger()"
+                                class="peer hidden">
+                            <div
+                                class="border border-slate-200 rounded-xl p-4 flex justify-between items-center text-sm transition-all peer-checked:border-blue-600 peer-checked:bg-blue-50/50">
+                                <span class="font-semibold text-slate-700">400 GB SSD Standard Block Array</span>
+                                <span class="text-emerald-600 font-bold">Free</span>
+                            </div>
+                        </label>
+                        <label class="block cursor-pointer">
+                            <input type="radio" name="storage" value="3.69" onchange="updateLiveLedger()"
+                                class="peer hidden">
+                            <div
+                                class="border border-slate-200 rounded-xl p-4 flex justify-between items-center text-sm transition-all peer-checked:border-blue-600 peer-checked:bg-blue-50/50">
+                                <span class="font-semibold text-slate-700">150 GB NVMe Dedicated Fast Array</span>
+                                <span class="text-slate-600 font-medium">+$3.69 per month</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 4: Server Images -->
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-4">4. Image</h3>
+                    <div class="space-y-3">
+                        <label class="block cursor-pointer">
+                            <input type="radio" name="image" value="0" checked onchange="updateLiveLedger()"
+                                class="peer hidden">
+                            <div
+                                class="border border-slate-200 rounded-xl p-4 flex justify-between items-center text-sm transition-all peer-checked:border-blue-600 peer-checked:bg-blue-50/50">
+                                <span class="font-semibold text-slate-700"><i
+                                        class="fab fa-ubuntu text-orange-500 mr-2"></i> Ubuntu 24.04 LTS Core</span>
+                                <span class="text-emerald-600 font-bold">Free</span>
+                            </div>
+                        </label>
+                        <label class="block cursor-pointer">
+                            <input type="radio" name="image" value="13.59" onchange="updateLiveLedger()"
+                                class="peer hidden">
+                            <div
+                                class="border border-slate-200 rounded-xl p-4 flex justify-between items-center text-sm transition-all peer-checked:border-blue-600 peer-checked:bg-blue-50/50">
+                                <span class="font-semibold text-slate-700"><i
+                                        class="fab fa-windows text-blue-500 mr-2"></i> Windows Server Standard
+                                    License</span>
+                                <span class="text-slate-600 font-medium">+$13.59 per month</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Step 5: Network Config Matrices -->
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-4">5. Networking</h3>
+                    <div class="space-y-3">
+                        <label class="block cursor-pointer">
+                            <input type="radio" name="networking" value="0" checked onchange="updateLiveLedger()"
+                                class="peer hidden">
+                            <div
+                                class="border border-slate-200 rounded-xl p-4 flex justify-between items-center text-sm transition-all peer-checked:border-blue-600 peer-checked:bg-blue-50/50">
+                                <span class="font-semibold text-slate-700">1 Standard Dedicated IPv4 Address</span>
+                                <span class="text-emerald-600 font-bold">Free</span>
+                            </div>
+                        </label>
+                        <label class="block cursor-pointer">
+                            <input type="radio" name="networking" value="9.90" onchange="updateLiveLedger()"
+                                class="peer hidden">
+                            <div
+                                class="border border-slate-200 rounded-xl p-4 flex justify-between items-center text-sm transition-all peer-checked:border-blue-600 peer-checked:bg-blue-50/50">
+                                <span class="font-semibold text-slate-700">1 IP Address + Installed Wildcard SSL
+                                    Certificate Bundle</span>
+                                <span class="text-slate-600 font-medium">+$9.90 per month</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Summary Sticky Panel matching standard layout in image_e4d509.png -->
+            <div class="bg-white rounded-2xl shadow-md border-t-4 border-red-500 p-6 sticky top-24 space-y-6">
+                <div class="text-center border-b border-slate-100 pb-4">
+                    <span class="text-xs font-bold uppercase text-slate-400 tracking-wider">Order Summary</span>
+                    <h4 class="text-xl font-black text-slate-800 mt-1" id="summary-instance-title">Cloud VPS M1</h4>
+                </div>
+
+                <!-- Dynamic Ledger Summary Items -->
+                <div class="space-y-3 text-sm text-slate-600">
+                    <div class="flex justify-between"><span>Term Length Cost:</span><span
+                            class="font-mono font-bold text-slate-900" id="bill-term">$0.00</span></div>
+                    <div class="flex justify-between"><span>Region Setup:</span><span class="font-mono text-slate-900"
+                            id="bill-region">$0.00</span></div>
+                    <div class="flex justify-between"><span>Storage Layer Cost:</span><span
+                            class="font-mono text-slate-900" id="bill-storage">$0.00</span></div>
+                    <div class="flex justify-between"><span>OS Image Fee:</span><span class="font-mono text-slate-900"
+                            id="bill-image">$0.00</span></div>
+                    <div class="flex justify-between"><span>Networking Allocation:</span><span
+                            class="font-mono text-slate-900" id="bill-networking">$0.00</span></div>
+                    <div class="flex justify-between border-b border-slate-100 pb-2"><span>Setup Fee
+                            Profile:</span><span class="font-mono text-emerald-600 font-bold">$0.00</span></div>
+                </div>
+
+                <!-- Grand Total Calculation Section -->
+                <div>
+                    <button onclick="calculateInvoiceGrandTotal()"
+                        class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-xl shadow-xs text-sm flex items-center justify-center gap-2 transition duration-200 cursor-pointer">
+                        <i class="fa-solid fa-calculator "></i> Calculate Price
+                    </button>
+
+                    <!-- Dynamic calculations response results container -->
+                    <div id="pricing-result-container"
+                        class="hidden mt-6 pt-4 text-center border-t border-slate-100 animate__animated animate__fadeIn">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest block">Calculated
+                            Total</span>
+                        <div class="text-3xl font-black text-slate-900 mt-1">$<span id="grand-total-val">154.08</span>
+                        </div>
+                        <span class="text-xs font-medium text-slate-500 block mt-1 animate-pulse"
+                            id="duration-notation">for selected contract period</span>
+
+                        <button onclick="triggerCheckoutFlow()"
+                            class="w-full bg-pink-500 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl shadow-md mt-4 transition duration-200 cursor-pointer flex items-center justify-center gap-2">
+                            Continue <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- SECURE BILLING GATEWAY MODAL (CHECKOUT)     -->
+    <!-- ========================================== -->
+    <div id="checkout-gateway-modal"
+        class="hidden fixed inset-0 bg-slate-950/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 animate__animated animate__fadeIn">
+        <div
+            class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 relative animate__animated animate__zoomIn">
+
+            <button onclick="hideCheckoutModal()"
+                class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 cursor-pointer text-lg">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <span
+                    class="text-xs font-bold text-blue-600 uppercase tracking-widest bg-blue-50 px-2.5 py-1 rounded-md">Gateway
+                    Portal</span>
+                <h3 class="text-xl font-black text-slate-900 mt-2">Select Payment Method</h3>
+                <p class="text-xs text-slate-400 mt-1">Deploy your sandbox immediately via local secure channels.</p>
+            </div>
+
+            <!-- Dynamic Invoice Summary Row -->
+            <div class="bg-slate-50 p-4 rounded-xl flex justify-between items-center mb-6 border border-slate-100">
+                <span class="text-sm font-bold text-slate-600">Total Invoice Valuation:</span>
+                <span class="text-2xl font-black text-blue-600" id="checkout-total-val">$154.08</span>
+            </div>
+
+            <!-- Payment channels choice matrices -->
+            <div class="space-y-3">
+                <div onclick="initiateQRGeneration('aba')"
+                    class="border border-slate-200 hover:border-blue-500 p-4 rounded-xl flex items-center justify-between cursor-pointer transition bg-slate-50">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-10 h-10 bg-blue-900 rounded-lg flex items-center justify-center text-white font-black text-xs">
+                            ABA</div>
+                        <span class="text-sm font-bold text-slate-800">ABA Pay / KHQR Mobile</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-slate-400 text-xs"></i>
+                </div>
+
+                <div onclick="initiateQRGeneration('wing')"
+                    class="border border-slate-200 hover:border-emerald-500 p-4 rounded-xl flex items-center justify-between cursor-pointer transition bg-slate-50">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center text-white font-black text-xs">
+                            WING</div>
+                        <span class="text-sm font-bold text-slate-800">Wing Bank Transfer Gateway</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-slate-400 text-xs"></i>
+                </div>
+            </div>
+
+            <div id="dynamic-qr-box"
+                class="hidden opacity-0 translate-y-8 transition-all duration-500 ease-out mt-6 p-4 border border-dashed border-slate-200 rounded-2xl bg-white text-center">
+
+                <div class="flex items-center justify-center gap-2 mb-3">
+                    <span class="text-xs font-bold uppercase text-slate-400 tracking-wider">Scan KHQR to Pay</span>
+                </div>
+
+                <div onclick="openQRLightbox()"
+                    class="bg-slate-50 w-52 h-52 mx-auto rounded-xl flex flex-col items-center justify-center border border-slate-200 relative p-4 shadow-inner cursor-pointer hover:border-blue-400 transition-all duration-300">
+                    <div class="absolute inset-2 border border-slate-300 rounded opacity-20 pointer-events-none"></div>
+
+                    <img src="./qr.jpg" alt="KHQR Code"
+                        class="w-36 h-36 object-contain relative z-10 rounded-lg shadow-sm" />
+
+                    <span class="text-[9px] font-mono tracking-widest text-slate-500 mt-3 z-10"
+                        id="qr-target-label">SECURE PAYPORT</span>
+                </div>
+
+                <p class="text-[11px] text-slate-400 mt-4">
+                    <i class="fa-solid fa-shield-halved text-emerald-500 mr-1"></i>
+                    Automation engine verifies transactions automatically.
+                </p>
+            </div>
+
+
+            <div id="qr-lightbox-modal"
+                class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm opacity-0 transition-opacity duration-300 ease-out">
+
+                <div id="qr-lightbox-card"
+                    class="bg-white rounded-3xl shadow-2xl w-full max-w-xs overflow-hidden transform scale-95 translate-y-8 transition-all duration-300 ease-out">
+
+                    <div class="bg-slate-800 p-4 flex justify-end items-center">
+                        <button onclick="closeQRLightbox()"
+                            class="w-8 h-8 bg-white/10 hover:bg-white/20 text-white rounded-full flex items-center justify-center transition cursor-pointer">
+                            <i class="fa-solid fa-xmark text-sm"></i>
+                        </button>
+                    </div>
+
+                    <div class="p-5 text-center">
+                        <div
+                            class="bg-slate-50 border border-slate-100 rounded-2xl p-4 shadow-inner w-full flex flex-col items-center justify-center">
+                            <span class="text-[10px] text-slate-400 font-medium tracking-wide mb-2">Scan Pay Now</span>
+
+                            <img src="./qr.jpg" alt="Large KHQR Code"
+                                class="w-40 h-40 object-contain rounded-lg shadow-sm bg-white p-1" />
+
+                            <span class="text-xs font-bold text-slate-700 mt-3">Put Chan Thy</span>
+                            <span id="lightbox-vendor-label"
+                                class="text-[9px] font-mono tracking-widest text-slate-400 uppercase mt-1">SABAYHOST
+                                WING GATEWAY</span>
+                        </div>
+
+                        <p class="text-[10px] text-slate-400 mt-4 flex items-center justify-center">
+                            <i class="fa-solid fa-shield-halved text-emerald-500 mr-1"></i>
+                            Automation engine verifies transactions automatically.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- buttonroll chat -->
+<div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 select-none">
+    
+    <div id="telegram-panel" class="bg-white rounded-2xl p-5 shadow-[0_15px_50px_-10px_rgba(0,0,0,0.15)] border border-slate-100 w-64 text-center transition-all duration-300 origin-bottom-right opacity-0 scale-75 translate-y-8 pointer-events-none flex flex-col items-center">
+        
+        <div class="relative w-11 h-11 mb-4">
+            <div class="relative w-full h-full bg-slate-900 text-white rounded-full flex items-center justify-center border border-slate-100 shadow-sm overflow-hidden">
+                <i class="fa-solid fa-user-astronaut text-base text-amber-400"></i>
+            </div>
+        </div>
+
+        <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 shadow-inner mb-4 relative">
+          
+            <a href="https://telegram.org/"><img src="./telegram.jpg" alt="Telegram QR" class="w-36 h-36 mx-auto rounded-lg"></a>
+            
+            <span class="block text-[11px] font-bold tracking-wider text-blue-500 mt-2">@ChanThy_Put</span>
+        </div>
+
+        <p class="text-xs text-slate-400 mb-1">Contact us via</p>
+        <a href="https://t.me/ChanThy_Put" target="_blank" class="text-sm font-semibold text-slate-600 hover:text-blue-500 transition-colors">
+            Telegram
+        </a>
+    </div>
+
+    <button id="widget-toggle-btn" onclick="toggleTelegramWidget()" class="w-14 h-14 bg-transparent flex items-center justify-center hover:scale-110 active:scale-90 cursor-pointer transition-transform duration-500 relative group focus:outline-none">
+        <svg class="w-full h-full drop-shadow-md" viewBox="0 0 56 56" fill="none" xmlns="https://telegram.org/">
+            <rect x="12" y="14" width="30" height="24" rx="7" fill="#bfe7f6" />
+            <rect x="15" y="11" width="29" height="24" rx="7" fill="#ecf9ff" stroke="#42b2d6" stroke-width="2.5" />
+            <circle cx="23.5" cy="23" r="2" fill="#42b2d6"/>
+            <circle cx="29.5" cy="23" r="2" fill="#42b2d6"/>
+            <circle cx="35.5" cy="23" r="2" fill="#42b2d6"/>
+        </svg>
+    </button>
+</div>
+
+
+    <!-- Contact & Footer Section -->
+    <footer id="contact" class="bg-white p-8 rounded-3xl border-3 border-pink-50 hover:border-pink-200  text-slate 400 pt-20 pb-8 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 relative z-10">
+            <div data-aos="fade-up" data-aos-delay="100">
+                <span class="text-1xl font-pink text-white tracking-wider">SABAY<span
+                        class="cute-title text-1xl md:text-2xl font-bold mb-3 text-pink-400 leading-tight">HOST</span></span>
+                <p class="mt-4 text-sm leading-relaxed text-slate-400">
+                    Providing optimal, localized web services, custom software, and technology educational curriculum in
+                    Cambodia.
+                </p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <h4 class="text-white font-bold mb-5 tracking-wide">Our Services</h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="#"
+                            class="hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Technical
+                            System Support</a></li>
+                    <li><a href="#"
+                            class="hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Infrastructure
+                            Hosting</a></li>
+                    <li><a href="#"
+                            class="hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Software
+                            Development Services</a></li>
+                    <li><a href="#"
+                            class="hover:text-white hover:translate-x-1 inline-block transition-all duration-200">Mobile
+                            App Services</a></li>
+                </ul>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="300">
+                <h4 class="text-white font-bold mb-5 tracking-wide">Contact Info</h4>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-amber-500 w-5"></i>
+                        Phnom Penh, Cambodia</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-blue-500 w-5"></i><a href="tel:+85510935945">010 935 945</a>
+                        </li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-blue-500 w-5"></i><a href="tel:+85510935945">010 935 945</a>
+                        </li>
+                </ul>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="400">
+                <h4 class="text-white font-bold mb-5 tracking-wide">Connect</h4>
+                <a href="https://telegram.org/" target="_blank"
+                    class="inline-flex items-center gap-2 bg-pink-500 text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-blue-500 hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-blue-500/10">
+                    <i class="fab fa-telegram text-base"></i> Telegram Channel
+                </a>
+            </div>
+        </div>
+
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-slate-900 text-center text-xs text-slate-600">
+            <p>&copy; Copyright Sabay Host. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- AOS Script Injection & Initialization for Viewport Capture -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 120, // start animation when element is 120px from viewport bottom
+            delay: 50, // default minor execution latency delay
+            duration: 700, // global speed setup
+            easing: 'ease-out-quad', // clean exit transition curves
+            once: true, // run once per window load session
+        });
+
+        // App State Properties Variables
+        let activeInstanceName = 'Cloud VPS M1';
+        let currentBaseValuePrice = 11.59;
+
+        // SPA View Router Management Frame 
+        function switchView(viewId) {
+            document.querySelectorAll('.app-view').forEach(view => view.classList.remove('active'));
+            document.getElementById(viewId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Animated scroll targets helper
+        function scrollToSection(sectionId) {
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Configure the unified calculation system state variables dynamically
+        function launchCalculator(name, price, cpu, ram, storage) {
+            activeInstanceName = name;
+            currentBaseValuePrice = price;
+
+            // Map variables into UI configurations
+            document.getElementById('selected-instance-title').innerText = `Configure your ${name}`;
+            document.getElementById('summary-instance-title').innerText = name;
+            document.getElementById('base-price-display').innerText = `$${price.toFixed(2)}`;
+
+            // Build dynamic text specs representation arrays
+            document.getElementById('spec-cpu').innerText = `vCPU: ${cpu}`;
+            document.getElementById('spec-ram').innerText = `RAM: ${ram}`;
+            document.getElementById('spec-storage').innerText = storage;
+
+            // Clean previous values flags
+            document.getElementById('pricing-result-container').classList.add('hidden');
+            updateLiveLedger();
+            switchView('calculator-view');
+        }
+
+        // Live options state monitors
+        function updateLiveLedger() {
+            const termFactor = parseInt(document.querySelector('input[name="term"]:checked').value);
+            const regionValue = parseFloat(document.querySelector('input[name="region"]:checked').value);
+            const storageValue = parseFloat(document.querySelector('input[name="storage"]:checked').value);
+            const imageValue = parseFloat(document.querySelector('input[name="image"]:checked').value);
+            const networkingValue = parseFloat(document.querySelector('input[name="networking"]:checked').value);
+
+            // Calculate exact cost values
+            const baseInvoiceTermSum = currentBaseValuePrice * termFactor;
+            const regionMultiplier = regionValue * termFactor;
+            const storageMultiplier = storageValue * termFactor;
+            const imageMultiplier = imageValue * termFactor;
+            const networkingMultiplier = networkingValue * termFactor;
+
+            // Render live text properties on summary card
+            document.getElementById('bill-term').innerText = `$${baseInvoiceTermSum.toFixed(2)}`;
+            document.getElementById('bill-region').innerText = `$${regionMultiplier.toFixed(2)}`;
+            document.getElementById('bill-storage').innerText = `$${storageMultiplier.toFixed(2)}`;
+            document.getElementById('bill-image').innerText = `$${imageMultiplier.toFixed(2)}`;
+            document.getElementById('bill-networking').innerText = `$${networkingMultiplier.toFixed(2)}`;
+        }
+
+        // Evaluates grand aggregate invoice totals 
+        function calculateInvoiceGrandTotal() {
+            const termFactor = parseInt(document.querySelector('input[name="term"]:checked').value);
+            const regionValue = parseFloat(document.querySelector('input[name="region"]:checked').value);
+            const storageValue = parseFloat(document.querySelector('input[name="storage"]:checked').value);
+            const imageValue = parseFloat(document.querySelector('input[name="image"]:checked').value);
+            const networkingValue = parseFloat(document.querySelector('input[name="networking"]:checked').value);
+
+            const baseSum = currentBaseValuePrice * termFactor;
+            const absoluteAddonSum = (regionValue + storageValue + imageValue + networkingValue) * termFactor;
+
+            let invoiceGrandTotal = baseSum + absoluteAddonSum;
+
+            // Map grand total values inside target UI spaces
+            document.getElementById('grand-total-val').innerText = invoiceGrandTotal.toFixed(2);
+            document.getElementById('duration-notation').innerText = `Total for unified contract period of ${termFactor} Months`;
+
+            // Reveal checkout action options container
+            document.getElementById('pricing-result-container').classList.remove('hidden');
+        }
+
+        // Checkout Modal Overlay dialog routines
+        function triggerCheckoutFlow() {
+            const totalInvoiceSum = document.getElementById('grand-total-val').innerText;
+            document.getElementById('checkout-total-val').innerText = `$${totalInvoiceSum}`;
+            document.getElementById('checkout-gateway-modal').classList.remove('hidden');
+
+            // Reset QR Box states when reopening modal
+            const qrBox = document.getElementById('dynamic-qr-box');
+            qrBox.classList.add('hidden', 'opacity-0', 'translate-y-8');
+        }
+
+        function hideCheckoutModal() {
+            document.getElementById('checkout-gateway-modal').classList.add('hidden');
+        }
+
+        function initiateQRGeneration(vendorCode) {
+            const qrVendorLabel = document.getElementById('qr-target-label');
+            qrVendorLabel.innerText = vendorCode === 'aba' ? 'SABAYHOST ABA KHQR' : 'SABAYHOST WING GATEWAY';
+
+            const qrBox = document.getElementById('dynamic-qr-box');
+
+            // 1. Reveal element in DOM
+            qrBox.classList.remove('hidden');
+
+            // 2. Short delay lets browser register layout, triggering smooth CSS translation push-up
+            setTimeout(() => {
+                qrBox.classList.remove('opacity-0', 'translate-y-8');
+            }, 20);
+
+            // Function triggered when clicking directly on the QR code card
+            function handleQRClick(element) {
+                // Example 1: Add a quick pop/bounce animation class
+                element.classList.add('scale-105');
+                setTimeout(() => {
+                    element.classList.remove('scale-105');
+                }, 200);
+
+                // Example 2: You can add logic here to open it in a full-screen modal, 
+                // download the QR image, or copy the payment details.
+                console.log("QR Code container clicked!");
+            }
+
+            // Your existing logic for showing the block remains unchanged
+            function initiateQRGeneration(vendorCode) {
+                const qrVendorLabel = document.getElementById('qr-target-label');
+                qrVendorLabel.innerText = vendorCode === 'aba' ? 'SABAYHOST ABA KHQR' : 'SABAYHOST WING GATEWAY';
+
+                const qrBox = document.getElementById('dynamic-qr-box');
+
+                qrBox.classList.remove('hidden');
+                setTimeout(() => {
+                    qrBox.classList.remove('opacity-0', 'translate-y-8');
+                }, 20);
+            }
+        }
+        function openQRLightbox() {
+            const modal = document.getElementById('qr-lightbox-modal');
+            const card = document.getElementById('qr-lightbox-card');
+
+            // Dynamically grab the active label text (ABA or Wing) from your parent layout
+            const activeLabel = document.getElementById('qr-target-label').innerText;
+            document.getElementById('lightbox-vendor-label').innerText = activeLabel;
+
+            // 1. Reveal element structure in the layout tree
+            modal.classList.remove('hidden');
+
+            // 2. Short frame delay allows Tailwind transitions to kick in smoothly
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                card.classList.remove('scale-95', 'translate-y-8');
+                card.classList.add('scale-100', 'translate-y-0');
+            }, 20);
+        }
+
+        function closeQRLightbox() {
+            const modal = document.getElementById('qr-lightbox-modal');
+            const card = document.getElementById('qr-lightbox-card');
+
+            // Apply reverse transition classes
+            modal.classList.add('opacity-0');
+            card.classList.remove('scale-100', 'translate-y-0');
+            card.classList.add('scale-95', 'translate-y-8');
+
+            // Remove completely from screen layers after transitions conclude
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+
+        //buttonroll chat
+        let currentRotation = 0;
+    
+    function toggleTelegramWidget() {
+        const panel = document.getElementById('telegram-panel');
+        const button = document.getElementById('widget-toggle-btn');
+        
+        // Accumulate rotation values smoothly on consecutive clicks
+        currentRotation += 360;
+        button.style.transform = `rotate(${currentRotation}deg)`;
+
+        if(panel.classList.contains('opacity-0')) {
+            panel.classList.remove('opacity-0', 'scale-75', 'translate-y-8', 'pointer-events-none');
+            panel.classList.add('opacity-100', 'scale-100', 'translate-y-0');
+        } else {
+            panel.classList.add('opacity-0', 'scale-75', 'translate-y-8', 'pointer-events-none');
+            panel.classList.remove('opacity-100', 'scale-100', 'translate-y-0');
+        }
+    }
+
+    </script>
+</body>
+
+</html>
